@@ -151,8 +151,8 @@ var vite_config_default = defineConfig({
     }
   },
   root: path.resolve(import.meta.dirname, "client"),
-  base: "/",
-  // Updated base path for custom domain
+  base: "./",
+  // Updated base path for relative asset paths
   build: {
     outDir: path.resolve(import.meta.dirname, "dist"),
     emptyOutDir: true
