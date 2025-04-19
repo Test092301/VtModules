@@ -151,11 +151,11 @@ var vite_config_default = defineConfig({
     }
   },
   root: path.resolve(import.meta.dirname, "client"),
+  base: "/VtModules/",
+  // Added base path for GitHub Pages
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
-    emptyOutDir: true,
-    base: "/VtModules/"
-    // Added base path for GitHub Pages
+    emptyOutDir: true
   }
 });
 
