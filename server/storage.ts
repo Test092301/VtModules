@@ -2,9 +2,29 @@ import {
   users, type User, type InsertUser,
   contacts, type Contact, type InsertContact 
 } from "@shared/schema";
+import { drizzle } from "drizzle-orm/node-postgres";
+import pkg from 'pg';
+const { Pool } = pkg;
 
-// modify the interface with any CRUD methods
-// you might need
+if (!process.env.DATABASE_URL) {
+  throw new Error("DATABASE_URL environment variable is required");
+}
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
+
+// Test database connection
+pool.connect((err, client, release) => {
+  if (err) {
+    console.error('Error connecting to the database:', err.stack);
+  } else {
+    console.log('Successfully connected to PostgreSQL database');
+    release();
+  }
+});
+
+const db = drizzle(pool);
 
 export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
@@ -15,56 +35,37 @@ export interface IStorage {
   getContact(id: number): Promise<Contact | undefined>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<number, User>;
-  private contacts: Map<number, Contact>;
-  private userCurrentId: number;
-  private contactCurrentId: number;
-
-  constructor() {
-    this.users = new Map();
-    this.contacts = new Map();
-    this.userCurrentId = 1;
-    this.contactCurrentId = 1;
-  }
-
+export class PostgresStorage implements IStorage {
   async getUser(id: number): Promise<User | undefined> {
-    return this.users.get(id);
+    const result = await db.select().from(users).where({ id }).limit(1);
+    return result[0];
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
+    const result = await db.select().from(users).where({ username }).limit(1);
+    return result[0];
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const id = this.userCurrentId++;
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
+    const result = await db.insert(users).values(insertUser).returning();
+    return result[0];
   }
 
   async createContact(insertContact: InsertContact): Promise<Contact> {
-    const id = this.contactCurrentId++;
     const timestamp = new Date();
-    const contact: Contact = { 
-      ...insertContact, 
-      id, 
-      createdAt: timestamp,
-      status: "new" 
-    };
-    this.contacts.set(id, contact);
-    return contact;
+    const contact = { ...insertContact, createdAt: timestamp, status: "new" };
+    const result = await db.insert(contacts).values(contact).returning();
+    return result[0];
   }
 
   async getContacts(): Promise<Contact[]> {
-    return Array.from(this.contacts.values());
+    return await db.select().from(contacts);
   }
 
   async getContact(id: number): Promise<Contact | undefined> {
-    return this.contacts.get(id);
+    const result = await db.select().from(contacts).where({ id }).limit(1);
+    return result[0];
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new PostgresStorage();

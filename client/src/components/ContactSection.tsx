@@ -105,10 +105,9 @@ export default function ContactSection() {
                 <div>
                   <h3 className="text-xl font-bold font-poppins text-primary mb-1">Our Location</h3>
                   <p className="text-neutral-dark">
-                    CameraTech India Manufacturing Facility<br />
-                    Electronic Manufacturing Cluster<br />
-                    Bengaluru, Karnataka 560100<br />
-                    India
+                    VT Modules India Manufacturing Facility<br />
+                    Sanand, Gujarat. <br />
+                    (planned)
                   </p>
                 </div>
               </div>
@@ -120,9 +119,7 @@ export default function ContactSection() {
                 <div>
                   <h3 className="text-xl font-bold font-poppins text-primary mb-1">Contact Information</h3>
                   <p className="text-neutral-dark">
-                    Phone: +91 80 4123 5678<br />
-                    Email: info@cameratechindia.com<br />
-                    Office Hours: Monday - Friday, 9:00 AM - 6:00 PM IST
+                    Email: yash@vtmodules.com<br />
                   </p>
                 </div>
               </div>
@@ -134,8 +131,8 @@ export default function ContactSection() {
                 <div>
                   <h3 className="text-xl font-bold font-poppins text-primary mb-1">Schedule a Visit</h3>
                   <p className="text-neutral-dark">
-                    We offer facility tours for potential clients and partners.<br />
-                    Please contact us at least 2 weeks in advance to schedule.
+                    Our facility tours for potential clients and partners.<br />
+                    will be available in Q2 2026.
                   </p>
                 </div>
               </div>

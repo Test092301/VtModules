@@ -13,17 +13,16 @@ export default function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="relative rounded-xl overflow-hidden shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1597733336794-12d05021d510?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" 
-                alt="Modern manufacturing facility with Indian workers" 
-                className="w-full"
-              />
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-primary-dark to-transparent opacity-30"></div>
-              <div className="absolute bottom-4 right-4 bg-white text-primary px-4 py-2 rounded-lg shadow-lg">
-                <p className="font-bold">Est. 2023</p>
-              </div>
-            </div>
+            <h2 className="text-3xl md:text-4xl font-bold font-poppins text-primary mb-6">
+              Advancing India's Manufacturing Vision
+            </h2>
+            <div className="w-20 h-1 bg-secondary mb-6"></div>
+            <p className="text-neutral-dark mb-6 leading-relaxed">
+              At VT Modules, we are committed to revolutionizing camera module manufacturing within India, reducing import dependency and generating skilled employment opportunities across our nation.
+            </p>
+            <p className="text-neutral-dark mb-8 leading-relaxed">
+              Our state-of-the-art facilities will be incorporate the latest technological advancements, ensuring that we meet international quality standards while promoting the Make in India initiative.
+            </p>
           </motion.div>
           
           <motion.div 
@@ -33,17 +32,6 @@ export default function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold font-poppins text-primary mb-6">
-              Advancing India's Manufacturing Vision
-            </h2>
-            <div className="w-20 h-1 bg-secondary mb-6"></div>
-            <p className="text-neutral-dark mb-6 leading-relaxed">
-              At CameraTech India, we are committed to revolutionizing camera module manufacturing within India, reducing import dependency and generating skilled employment opportunities across our nation.
-            </p>
-            <p className="text-neutral-dark mb-8 leading-relaxed">
-              Our state-of-the-art facilities incorporate the latest technological advancements, ensuring that we meet international quality standards while promoting the Make in India initiative.
-            </p>
-            
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <motion.div 
                 className="bg-neutral-light p-6 rounded-lg"

@@ -1,28 +1,42 @@
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { useScroll } from "@/hooks/use-scroll";
 
 export default function FacilitiesSection() {
-  const { scrollToSection } = useScroll();
-  
   const facilities = [
     {
-      image: "https://images.unsplash.com/photo-1581092458741-b352608788cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-      title: "Class 100 Clean Rooms",
-      description: "Our ISO-certified clean rooms maintain less than 100 particles per cubic foot, ensuring a contamination-free manufacturing environment.",
-      tags: ["HEPA Filtration", "Temperature Controlled"],
+      title: "Fully Automated SMT line",
+      description: "Our state-of-the-art SMT lines ensure precision and efficiency in assembling electronic components with minimal human intervention.",
+      tags: ["High Precision", "Efficiency"],
     },
     {
-      image: "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-      title: "Automated Assembly Lines",
-      description: "Precision-engineered assembly lines with robotics and AI-driven quality control systems for consistent production quality.",
-      tags: ["Robotic Precision", "AI Integration"],
+      title: "Class-1000 Cleanroom Environment",
+      description: "Maintaining a controlled environment with less than 1000 particles per cubic foot to ensure contamination-free manufacturing.",
+      tags: ["Controlled Environment", "ISO Certified"],
     },
     {
-      image: "https://images.unsplash.com/photo-1576086135878-bd1e30cb5cf3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-      title: "Advanced Testing Laboratory",
-      description: "Comprehensive testing facilities equipped with image quality analysis, environmental stress testing, and durability verification.",
-      tags: ["Image Quality Analysis", "Stress Testing"],
+      title: "Ultrasonic cleaning after SMT",
+      description: "Advanced ultrasonic cleaning processes to remove contaminants and ensure the highest quality standards post-SMT.",
+      tags: ["High Purity", "Advanced Cleaning"],
+    },
+    {
+      title: "Active Alignment for lens Assembly",
+      description: "Precision alignment technology for lens assembly to achieve optimal image quality and performance.",
+      tags: ["Precision Alignment", "Optimal Performance"],
+    },
+    {
+      title: "Manual Assembly + Baking for small orders",
+      description: "Customized manual assembly and baking processes tailored for small batch orders, ensuring flexibility and quality.",
+      tags: ["Custom Orders", "Flexibility"],
+    },
+    {
+      title: "Vibration testing + Image Quality Verification",
+      description: "Comprehensive testing to ensure durability and superior image quality under various conditions.",
+      tags: ["Durability Testing", "Image Quality"],
+    },
+    {
+      title: "UV Adhesive Bonding + Protective Packaging",
+      description: "Advanced bonding techniques and secure packaging to protect products during transit and storage.",
+      tags: ["Secure Packaging", "Advanced Bonding"],
     },
   ];
 
@@ -39,7 +53,7 @@ export default function FacilitiesSection() {
           <h2 className="text-3xl md:text-4xl font-bold font-poppins text-primary mb-6">World-Class Facilities</h2>
           <div className="w-20 h-1 bg-secondary mx-auto mb-6"></div>
           <p className="text-neutral-dark">
-            Our cutting-edge manufacturing facilities are equipped with the latest technology to ensure precision, quality, and efficiency in every camera module we produce.
+            Our cutting-edge manufacturing facilities will be equipped with the latest technology to ensure precision, quality, and efficiency in every camera module we produce.
           </p>
         </motion.div>
         
@@ -47,51 +61,27 @@ export default function FacilitiesSection() {
           {facilities.map((facility, index) => (
             <motion.div 
               key={index}
-              className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl card-shine"
+              className="bg-white rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="h-48 overflow-hidden">
-                <img 
-                  src={facility.image}
-                  alt={facility.title} 
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold font-poppins text-primary mb-3">{facility.title}</h3>
-                <p className="text-neutral-dark mb-4">
-                  {facility.description}
-                </p>
-                <div className="flex items-center flex-wrap">
-                  {facility.tags.map((tag, tagIndex) => (
-                    <span key={tagIndex} className="text-primary text-sm font-semibold mr-2">
-                      {tagIndex > 0 && <span className="mr-2">•</span>}
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+              <h3 className="text-xl font-bold font-poppins text-primary mb-3">{facility.title}</h3>
+              <p className="text-neutral-dark mb-4">
+                {facility.description}
+              </p>
+              <div className="flex items-center flex-wrap">
+                {facility.tags.map((tag, tagIndex) => (
+                  <span key={tagIndex} className="text-primary text-sm font-semibold mr-2">
+                    {tagIndex > 0 && <span className="mr-2">•</span>}
+                    {tag}
+                  </span>
+                ))}
               </div>
             </motion.div>
           ))}
         </div>
-        
-        <motion.div 
-          className="mt-16 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
-          <Button 
-            onClick={() => scrollToSection("contact")}
-            className="bg-primary hover:bg-primary-light text-white font-bold py-3 px-8 rounded-md transition-colors shadow-lg"
-          >
-            Schedule a Facility Tour
-          </Button>
-        </motion.div>
       </div>
     </section>
   );

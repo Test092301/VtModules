@@ -2,6 +2,7 @@ import { Mail, MapPin, Phone, Clock } from "lucide-react";
 import Logo from "./Logo";
 import { cn } from "@/lib/utils";
 import { useScroll } from "@/hooks/use-scroll";
+import { text } from "stream/consumers";
 
 export default function Footer() {
   const { scrollToSection } = useScroll();
@@ -20,29 +21,27 @@ export default function Footer() {
   
   const services = [
     "Camera Module Manufacturing",
-    "Custom Design Solutions",
     "Quality Testing",
     "Research & Development",
     "OEM Partnerships",
-    "Component Supply",
   ];
   
   const contactInfo = [
     { 
       icon: <MapPin className="text-secondary flex-shrink-0" size={20} />,
-      text: "Bengaluru, Karnataka 560100, India"
+      text: "Sanand, Gujarat, India.(Planned Location)"
     },
     { 
       icon: <Mail className="text-secondary flex-shrink-0" size={20} />,
-      text: "info@cameratechindia.com"
+      text: "info@vtmodules.com"
     },
     { 
       icon: <Phone className="text-secondary flex-shrink-0" size={20} />,
-      text: "+91 80 4123 5678"
+      text: ""
     },
     { 
       icon: <Clock className="text-secondary flex-shrink-0" size={20} />,
-      text: "Mon-Fri: 9:00 AM - 6:00 PM"
+      text: ""
     },
   ];
 
@@ -120,7 +119,7 @@ export default function Footer() {
         <div className="border-t border-white border-opacity-20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-white text-opacity-60 text-sm mb-4 md:mb-0">
-              &copy; {currentYear} CameraTech India. All rights reserved.
+              &copy; {currentYear} VT Modules Pvt. Ltd. All rights reserved.
             </p>
             <div className="flex space-x-6">
               <a href="#" className="text-white text-opacity-60 hover:text-secondary text-sm transition-colors">Privacy Policy</a>

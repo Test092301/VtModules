@@ -3,35 +3,35 @@ import { motion } from "framer-motion";
 export default function TimelineSection() {
   const timelineItems = [
     {
-      phase: "Phase 1: Q3 2023",
+      phase: "Phase 1: Q2 2025",
       title: "Facility Planning & Design",
       description: "Comprehensive planning, facility design, and securing partnerships with international technology providers.",
-      status: "Completed",
+      status: "In Progress",
       tags: ["Site Selection", "Partnerships", "Initial Investment"]
     },
     {
-      phase: "Phase 2: Q1 2024",
+      phase: "Phase 2: Q3 2025",
       title: "Infrastructure Development",
       description: "Construction of clean rooms, installation of basic infrastructure, and setup of initial production lines.",
-      status: "Completed",
+      status: "Planned",
       tags: ["Clean Room Construction", "Basic Equipment", "Team Formation"]
     },
     {
-      phase: "Phase 3: Q2 2024",
+      phase: "Phase 3: Q4 2025",
       title: "Equipment Installation & Testing",
       description: "Installation of specialized manufacturing equipment, quality control systems, and initial test production runs.",
-      status: "In Progress",
+      status: "Planned",
       tags: ["Specialized Equipment", "Test Production", "Quality Systems"]
     },
     {
-      phase: "Phase 4: Q3 2024",
+      phase: "Phase 4: Q1 2026",
       title: "Initial Production",
       description: "Beginning of limited production runs, certification processes, and first client deliveries.",
       status: "Planned",
       tags: ["Limited Production", "Certifications", "Initial Clients"]
     },
     {
-      phase: "Phase 5: Q1 2025",
+      phase: "Phase 5: Q2 2026",
       title: "Full-Scale Operations",
       description: "Complete operational capacity with all product lines running, full workforce deployment, and maximum production capacity.",
       status: "Planned",
@@ -71,7 +71,7 @@ export default function TimelineSection() {
               <div className="timeline-connector"></div>
               <div className="bg-white rounded-xl shadow-md p-6 ml-4">
                 <div className="flex flex-col md:flex-row md:items-center gap-4 mb-4">
-                  <div className={`${item.status === 'Planned' ? 'bg-neutral-dark' : 'bg-primary'} text-white px-4 py-2 rounded-full inline-block`}>
+                  <div className={`${item.status === 'Planned' ? 'bg-neutral-dark bg-opacity-50 text-neutral-dark' : 'bg-primary text-white'} px-4 py-2 rounded-full inline-block`}>
                     <p className="font-bold">{item.phase}</p>
                   </div>
                   <h3 className="text-xl font-bold font-poppins text-primary">{item.title}</h3>
@@ -82,11 +82,9 @@ export default function TimelineSection() {
                 <div className="flex flex-wrap gap-2">
                   <span 
                     className={`${
-                      item.status === 'Completed' 
-                        ? 'bg-green-100 text-green-800' 
-                        : item.status === 'In Progress'
-                          ? 'bg-green-100 text-green-800'
-                          : 'bg-neutral-dark bg-opacity-10 text-neutral-dark'
+                      item.status === 'In Progress' 
+                        ? 'bg-blue-100 text-blue-800' 
+                        : 'bg-neutral-dark bg-opacity-10 text-neutral-dark'
                     } px-3 py-1 rounded-full text-xs font-semibold`}
                   >
                     {item.status}

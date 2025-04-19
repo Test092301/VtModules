@@ -97,6 +97,13 @@
     transform: rotate(30deg);
     transition: transform 0.5s;
   }
+
+  .bg-texture {
+    background-image: url('/images/texture-pattern.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
   
   .card-shine:hover::after {
     transform: rotate(30deg) translate(10%, 10%);
