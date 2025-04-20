@@ -103,6 +103,7 @@ import { fromZodError } from "zod-validation-error";
 async function registerRoutes(app2) {
   app2.post("/api/contact", async (req, res) => {
     try {
+      console.log("Incoming request data:", req.body);
       const contactData = contactSchema.parse(req.body);
       const contact = await storage.createContact(contactData);
       res.status(201).json({
