@@ -78,8 +78,14 @@ var PostgresStorage = class {
   async createContact(insertContact) {
     const timestamp2 = /* @__PURE__ */ new Date();
     const contact = { ...insertContact, createdAt: timestamp2, status: "new" };
-    const result = await db.insert(contacts).values(contact).returning();
-    return result[0];
+    try {
+      const result = await db.insert(contacts).values(contact).returning();
+      console.log("Contact successfully created:", result[0]);
+      return result[0];
+    } catch (error) {
+      console.error("Error inserting contact into database:", error);
+      throw error;
+    }
   }
   async getContacts() {
     return await db.select().from(contacts);
